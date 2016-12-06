@@ -1,0 +1,1 @@
+# Skypeweb_pidgin_plugin_reconnect_automatically_patch
