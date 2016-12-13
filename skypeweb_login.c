@@ -30,12 +30,12 @@ skypeweb_login_did_auth(PurpleUtilFetchUrlData *url_data, gpointer user_data, co
 	
 	if (url_text != NULL) {
 		refresh_token = skypeweb_string_get_chunk(url_text, len, "=\"skypetoken\" value=\"", "\"");
-	} /*else {
+	} else {
 		purple_connection_error(sa->pc,
-								PURPLE_CONNECTION_ERROR_NETWORK_ERROR,
-								//PURPLE_CONNECTION_ERROR_AUTHENTICATION_FAILED,
+								//PURPLE_CONNECTION_ERROR_NETWORK_ERROR,
+								PURPLE_CONNECTION_ERROR_AUTHENTICATION_FAILED,
 								_("Failed getting Skype Token"));
-	}*/
+	}
 	
 	if (refresh_token == NULL) {
 		purple_account_set_string(sa->account, "refresh-token", NULL);
@@ -44,13 +44,13 @@ skypeweb_login_did_auth(PurpleUtilFetchUrlData *url_data, gpointer user_data, co
 									PURPLE_CONNECTION_ERROR_AUTHENTICATION_FAILED,
 									_("Captcha required.\nTry logging into web.skype.com and try again."));
 			return;
-		} /*else {
+		} else {
 			purple_debug_info("skypeweb", "login response was %s\r\n", url_text);
 			purple_connection_error(sa->pc,
 									PURPLE_CONNECTION_ERROR_AUTHENTICATION_FAILED,
 									_("Failed getting Skype Token"));
-			return;
-		}*/
+			//return;
+		}
 	}
 	
 	sa->skype_token = refresh_token;
