@@ -1,4 +1,4 @@
-# Skypeweb_pidgin_plugin_reconnect_automatically_patch
+# Skypeweb-Pidgin-Auto-Reconnect-Patch
 
 This patched version (v1.2.2) is intended to fix the network issue where skype does not reconnect automatically...
 This is a workaround not an update by any mean !
